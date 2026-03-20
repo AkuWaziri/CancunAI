@@ -608,12 +608,12 @@
       section { padding: 56px 20px; }
       .earnings-layout { grid-template-columns: 1fr; gap: 36px; }
       .earnings-card { padding: 20px 18px; }
-      footer { flex-direction: column; text-align: center; align-items: center; padding: 28px 20px; }
+      footer { flex-direction: column; text-align: center; align-items: center; padding: 28px 20px 100px; }
       .footer-links { justify-content: center; flex-wrap: wrap; gap: 14px; }
       .how-grid { margin-top: 32px; margin-left: 20px; margin-right: 20px; width: calc(100% - 40px); }
       .how-card { padding: 24px 20px; }
       .section-title { font-size: clamp(22px, 6vw, 34px); }
-      .roadmap-strip { padding: 28px 12px; overflow-x: auto; justify-content: flex-start; }
+      .roadmap-strip { padding: 28px 12px 28px 24px; overflow-x: auto; justify-content: flex-start; -webkit-overflow-scrolling: touch; }
       .roadmap-node { padding: 0 8px; }
       .roadmap-line { width: 20px; }
       .roadmap-text { font-size: 10px; }
@@ -630,7 +630,7 @@
       .tester-grid { grid-template-columns: 1fr; }
       .tester-header { flex-direction: column; gap: 16px; }
       .sticky-cta { display: flex; }
-      body { padding-bottom: 76px; }
+      body { padding-bottom: 80px; }
     }
 
     @media (max-width: 480px) {
@@ -654,7 +654,7 @@
       .earn-card { padding: 22px 16px; }
       .tester-card { padding: 20px 16px; }
       .faq-wrap { margin-top: 28px; }
-      .roadmap-strip { padding: 20px 8px; }
+      .roadmap-strip { padding: 20px 8px 20px 20px; -webkit-overflow-scrolling: touch; }
       .sticky-cta { padding: 12px 16px; }
       .hero-badge { font-size: 10px; padding: 5px 12px; }
     }
@@ -796,6 +796,7 @@
       gap: 0;
       border-bottom: 1px solid var(--border);
       overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
 
     .roadmap-step {
@@ -2197,6 +2198,23 @@
       errEl.style.display = 'block';
     });
   }
+
+  // ── Hide sticky CTA near footer ──
+  window.addEventListener('scroll', () => {
+    const footer = document.querySelector('footer');
+    const sticky = document.getElementById('stickyCta');
+    if (!footer || !sticky) return;
+    const footerTop = footer.getBoundingClientRect().top;
+    const windowHeight = window.innerHeight;
+    if (footerTop < windowHeight + 20) {
+      sticky.style.display = 'none';
+    } else {
+      // Only show if not already signed up
+      if (!document.getElementById('successMsg') || document.getElementById('successMsg').style.display === 'none') {
+        if (window.innerWidth <= 768) sticky.style.display = 'flex';
+      }
+    }
+  });
 
   // ── FAQ accordion ──
   function toggleFaq(el) {
