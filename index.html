@@ -613,13 +613,23 @@
       .how-grid { margin-top: 32px; margin-left: 20px; margin-right: 20px; width: calc(100% - 40px); }
       .how-card { padding: 24px 20px; }
       .section-title { font-size: clamp(22px, 6vw, 34px); }
-      .roadmap-strip { padding: 28px 16px 28px 28px; overflow-x: visible; justify-content: center; flex-wrap: nowrap; }
-      .roadmap-node { padding: 0 4px; }
-      .roadmap-line { width: 16px; }
-      .roadmap-text { font-size: 9px; letter-spacing: 0; }
-      .roadmap-sub { font-size: 8px; }
-      .roadmap-dot { width: 26px; height: 26px; font-size: 10px; }
-      .roadmap-dot svg { width: 12px; height: 12px; }
+      .roadmap-strip {
+        padding: 28px 40px;
+        overflow-x: auto;
+        overflow-y: visible;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .roadmap-strip::-webkit-scrollbar { display: none; }
+      .roadmap-node { padding: 0 12px; }
+      .roadmap-line { width: 32px; flex-shrink: 0; }
+      .roadmap-text { font-size: 11px; white-space: nowrap; }
+      .roadmap-sub { font-size: 10px; white-space: nowrap; }
+      .roadmap-dot { width: 36px; height: 36px; flex-shrink: 0; }
+      .roadmap-dot svg { width: 14px; height: 14px; }
+      .roadmap-step:first-child .roadmap-node { padding-left: 16px; }
+      .roadmap-step:last-child .roadmap-node { padding-right: 16px; }
       .roadmap-node { padding: 0 8px; }
       .roadmap-line { width: 20px; }
       .roadmap-text { font-size: 10px; }
@@ -660,13 +670,18 @@
       .earn-card { padding: 22px 16px; }
       .tester-card { padding: 20px 16px; }
       .faq-wrap { margin-top: 28px; }
-      .roadmap-strip { padding: 20px 8px; overflow-x: visible; justify-content: center; }
-      .roadmap-node { padding: 0 2px; }
-      .roadmap-line { width: 10px; }
-      .roadmap-text { font-size: 8px; }
-      .roadmap-sub { font-size: 7px; }
-      .roadmap-dot { width: 22px; height: 22px; }
-      .roadmap-dot svg { width: 10px; height: 10px; }
+      .roadmap-strip {
+        padding: 24px 32px;
+        overflow-x: auto;
+        overflow-y: visible;
+        justify-content: flex-start;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+      }
+      .roadmap-node { padding: 0 10px; }
+      .roadmap-line { width: 24px; }
+      .roadmap-text { font-size: 10px; }
+      .roadmap-sub { font-size: 9px; }
       .sticky-cta { padding: 12px 16px; }
       .hero-badge { font-size: 10px; padding: 5px 12px; }
     }
@@ -807,6 +822,7 @@
       justify-content: center;
       gap: 0;
       border-bottom: 1px solid var(--border);
+      overflow: visible;
     }
 
     .roadmap-step {
