@@ -18,7 +18,7 @@
 
   <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:site" content="@cancunai">
+  <meta name="twitter:site" content="@cancunAi">
   <meta name="twitter:title" content="CancunAI — Your Data. Your Earnings.">
   <meta name="twitter:description" content="Earn real money from your daily browsing. CancunAI pays you for anonymised data AI companies actually need. Only 1,000 early access spots.">
   <meta name="twitter:image" content="https://www.cancunai.xyz/og-image.png">
@@ -538,7 +538,7 @@
     /* ── FOOTER ── */
     footer {
       border-top: 1px solid var(--border);
-      padding: 32px 48px;
+      padding: 28px 48px;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -559,7 +559,9 @@
 
     .footer-links {
       display: flex;
-      gap: 24px;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
     }
 
     .footer-links a {
@@ -567,11 +569,181 @@
       color: var(--muted);
       text-decoration: none;
       transition: color 0.2s;
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
     }
 
     .footer-links a:hover { color: var(--text); }
 
-    /* ── ANIMATIONS ── */
+    /* ── SCROLL ANIMATIONS ── */
+    .reveal {
+      opacity: 0;
+      transform: translateY(28px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .reveal-delay-1 { transition-delay: 0.1s; }
+    .reveal-delay-2 { transition-delay: 0.2s; }
+    .reveal-delay-3 { transition-delay: 0.3s; }
+    .reveal-delay-4 { transition-delay: 0.4s; }
+
+    /* ── SECTION BACKGROUND GLOWS ── */
+    .earn-section {
+      position: relative;
+    }
+
+    .earn-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(800px, 100vw);
+      height: 100%;
+      background: radial-gradient(ellipse at 30% 50%, rgba(232,255,71,0.03) 0%, transparent 60%),
+                  radial-gradient(ellipse at 70% 50%, rgba(71,255,212,0.02) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    .tester-section {
+      position: relative;
+    }
+
+    .tester-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 50%;
+      transform: translateX(-50%);
+      width: min(800px, 100vw);
+      height: 100%;
+      background: radial-gradient(ellipse at 70% 30%, rgba(71,255,212,0.03) 0%, transparent 60%);
+      pointer-events: none;
+    }
+
+    /* ── SECTION DIVIDER GRADIENTS ── */
+    .section-fade {
+      height: 1px;
+      background: linear-gradient(90deg, transparent 0%, rgba(232,255,71,0.15) 30%, rgba(232,255,71,0.15) 70%, transparent 100%);
+      border: none;
+    }
+
+    /* ── CARD HOVER STATES ── */
+    .how-card {
+      background: var(--card);
+      padding: 40px 36px;
+      position: relative;
+      transition: background 0.25s, transform 0.25s, box-shadow 0.25s;
+      cursor: default;
+    }
+
+    .how-card:hover {
+      background: rgba(255,255,255,0.05);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .earn-card {
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s, background 0.25s;
+    }
+
+    .earn-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 16px 48px rgba(0,0,0,0.35);
+      border-color: rgba(232,255,71,0.2);
+    }
+
+    .earn-card.active-now:hover {
+      border-color: rgba(255,107,43,0.4);
+      box-shadow: 0 16px 48px rgba(255,107,43,0.08);
+    }
+
+    .tester-card {
+      transition: border-color 0.25s, transform 0.25s, box-shadow 0.25s;
+    }
+
+    .tester-card:hover {
+      transform: translateY(-4px);
+      border-color: rgba(71,255,212,0.2);
+      box-shadow: 0 12px 40px rgba(0,0,0,0.3);
+    }
+
+    .faq-item {
+      transition: padding 0.2s;
+    }
+
+    .faq-item:hover .faq-q {
+      color: var(--text);
+    }
+
+    /* ── BUTTON MICRO-INTERACTIONS ── */
+    .btn-primary {
+      transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 8px 30px rgba(232,255,71,0.35);
+    }
+
+    .btn-primary:active {
+      transform: scale(0.97) translateY(0);
+      box-shadow: 0 2px 12px rgba(232,255,71,0.2);
+    }
+
+    .btn-sticky:active {
+      transform: scale(0.96);
+    }
+
+    /* ── HOW-IT-WORKS NUMBER BRIGHTNESS ── */
+    .how-num {
+      font-family: 'Syne', sans-serif;
+      font-size: 64px;
+      font-weight: 800;
+      color: rgba(232,255,71,0.13);
+      line-height: 1;
+      margin-bottom: 20px;
+      letter-spacing: -2px;
+      transition: color 0.25s;
+    }
+
+    .how-card:hover .how-num {
+      color: rgba(232,255,71,0.22);
+    }
+
+    /* ── SMOOTH SECTION ENTRANCE ── */
+    .earnings-section {
+      position: relative;
+    }
+
+    .earnings-section::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,255,71,0.1), transparent);
+    }
+
+    .earnings-section::after {
+      content: '';
+      position: absolute;
+      bottom: 0; left: 0; right: 0;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(232,255,71,0.1), transparent);
+    }
+
+    /* ── NAV LOGO HOVER ── */
+    .nav-logo svg {
+      transition: transform 0.2s;
+    }
+
+    .nav-logo:hover svg {
+      transform: rotate(-5deg) scale(1.05);
+    }
     @keyframes fadeUp {
       from { opacity: 0; transform: translateY(20px); }
       to   { opacity: 1; transform: translateY(0); }
@@ -1351,7 +1523,10 @@
     </svg>
     <span style="font-family:'Syne',sans-serif;font-weight:800;font-size:18px;letter-spacing:-0.5px;color:#F0F4FF;margin-left:8px;">cancunAI</span>
   </div>
-  <div class="nav-pill">Early Access Open</div>
+  <div style="display:flex;align-items:center;gap:10px;">
+    <a href="docs.html" style="display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:#E8FF47;border:1px solid rgba(232,255,71,0.3);background:rgba(232,255,71,0.07);padding:6px 14px;border-radius:100px;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(232,255,71,0.15)'" onmouseout="this.style.background='rgba(232,255,71,0.07)'">📖 Docs</a>
+    <div class="nav-pill">Early Access Open</div>
+  </div>
 </nav>
 
 <!-- HERO -->
@@ -1444,7 +1619,7 @@
 
 <!-- WAYS TO EARN -->
 <section class="earn-section">
-  <div class="container center">
+  <div class="container center reveal">
     <span class="section-tag">Ways to Earn</span>
     <h2 class="section-title" style="margin:0 auto;">Three ways to stack points</h2>
     <p class="section-sub" style="margin:16px auto 0;text-align:center;">Some start now. Some start at launch. All count toward your payout.</p>
@@ -1453,7 +1628,7 @@
   <div class="earn-grid">
 
     <!-- Card 1 — Browse & Earn -->
-    <div class="earn-card">
+    <div class="earn-card reveal reveal-delay-1">
       <div class="earn-card-badge soon">⏳ At Launch</div>
       <div class="earn-card-icon yellow">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#E8FF47" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1468,7 +1643,7 @@
     </div>
 
     <!-- Card 2 — Post on X (LIVE NOW) -->
-    <div class="earn-card active-now">
+    <div class="earn-card active-now reveal reveal-delay-2">
       <div class="earn-card-badge live">✦ Active Now</div>
       <div class="earn-card-icon yellow">
         <svg width="24" height="24" viewBox="0 0 24 24" fill="#E8FF47">
@@ -1490,7 +1665,7 @@
     </div>
 
     <!-- Card 3 — AI Feedback Tasks -->
-    <div class="earn-card">
+    <div class="earn-card reveal reveal-delay-3">
       <div class="earn-card-badge soon">⚡ Early Testers</div>
       <div class="earn-card-icon teal">
         <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="#47FFD4" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
@@ -1507,7 +1682,7 @@
 
 <!-- HOW IT WORKS -->
 <section style="padding-top: 0;">
-  <div class="container center">
+  <div class="container center reveal">
     <span class="section-tag">How It Works</span>
     <h2 class="section-title" style="margin: 0 auto;">Three steps to passive earnings</h2>
   </div>
@@ -1554,12 +1729,12 @@
 <!-- EARNINGS PREVIEW -->
 <section class="earnings-section">
   <div class="earnings-layout container">
-    <div>
+    <div class="reveal">
       <span class="section-tag">Earnings</span>
       <h2 class="section-title">See what your data is actually worth</h2>
       <p class="section-sub">AI companies pay real money for quality human data. We pass that value directly to you — no middleman, no hidden cuts.</p>
     </div>
-    <div class="earnings-card">
+    <div class="earnings-card reveal reveal-delay-1">
       <div class="earnings-label">How Points Convert</div>
 
       <!-- Disclaimer badge — unmissable -->
@@ -1708,7 +1883,7 @@
 
 <!-- FAQ -->
 <section style="padding-top: 40px; padding-bottom: 120px;">
-  <div class="container center">
+  <div class="container center reveal">
     <span class="section-tag">FAQ</span>
     <h2 class="section-title" style="margin:0 auto;">Questions answered</h2>
   </div>
@@ -1774,7 +1949,9 @@
       <svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.373 0 0 5.373 0 12s5.373 12 12 12 12-5.373 12-12S18.627 0 12 0zm5.894 8.221-1.97 9.28c-.145.658-.537.818-1.084.508l-3-2.21-1.447 1.394c-.16.16-.295.295-.605.295l.213-3.053 5.56-5.023c.242-.213-.054-.333-.373-.12L8.32 13.617l-2.96-.924c-.64-.203-.654-.64.136-.954l11.566-4.461c.537-.194 1.006.131.832.943z"/></svg>
       Telegram
     </a>
-    <a href="https://x.com/cancunai" target="_blank" rel="noopener">𝕏 Twitter</a>
+    <a href="https://x.com/cancunAi" target="_blank" rel="noopener">𝕏 Twitter</a>
+    <a href="docs.html" style="color:#E8FF47;border:1px solid rgba(232,255,71,0.3);background:rgba(232,255,71,0.07);padding:5px 12px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;">📖 Docs</a>
+    <a href="https://x.com/cancunAi" target="_blank" rel="noopener" style="color:#FF6B2B;border:1px solid rgba(255,107,43,0.35);background:rgba(255,107,43,0.08);padding:6px 14px;border-radius:100px;font-size:12px;font-weight:700;letter-spacing:0.06em;text-transform:uppercase;text-decoration:none;transition:background 0.2s;" onmouseover="this.style.background='rgba(255,107,43,0.18)'" onmouseout="this.style.background='rgba(255,107,43,0.08)'">💬 Support</a>
     <a href="#" onclick="openModal('privacyModal');return false;">Privacy</a>
     <a href="#" onclick="openModal('termsModal');return false;">Terms</a>
   </div>
@@ -1826,7 +2003,7 @@
       <p>We work with AI companies, research institutions, and ML labs as data buyers. These parties receive only anonymised, aggregated datasets — never your name, email, or any identifying information. We do not share your data with advertisers under any circumstances.</p>
 
       <h4>Your Rights</h4>
-      <p>You have the right to access, correct, or delete your personal data at any time. To exercise any of these rights, contact us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="8dfdffe4fbeceef4cdeeece3eef8e3a3ece4">[email&#160;protected]</a>. We will respond within 30 days.</p>
+      <p>You have the right to access, correct, or delete your personal data at any time. To exercise any of these rights, reach out via our Telegram community at t.me/cancunAI. We will respond within 30 days.</p>
 
       <h4>Changes to This Policy</h4>
       <p>We may update this policy as the product evolves. Material changes will be communicated via email to registered users before they take effect.</p>
@@ -1869,7 +2046,7 @@
       <p>You may not attempt to manipulate, falsify, or automate data contributions. Any detected abuse — including bot activity, VPN manipulation, or artificial inflation of contribution metrics — will result in immediate account termination and forfeiture of accumulated points.</p>
 
       <h4>9. Termination</h4>
-      <p>CancunAI reserves the right to suspend or terminate any account at its discretion, particularly in cases of abuse, fraud, or violation of these terms. Users may request account closure by contacting us at <a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="6717150e1106041e2704060904120949060e">[email&#160;protected]</a>.</p>
+      <p>CancunAI reserves the right to suspend or terminate any account at its discretion, particularly in cases of abuse, fraud, or violation of these terms. Users may request account closure by contacting us via Telegram at t.me/cancunAI.</p>
 
       <h4>10. Limitation of Liability</h4>
       <p>CancunAI is provided "as is." We make no warranties regarding uptime, data buyer availability, or reward continuity. To the maximum extent permitted by law, CancunAI shall not be liable for any indirect, incidental, or consequential damages arising from use of the platform.</p>
@@ -2200,6 +2377,18 @@
       errEl.style.display = 'block';
     });
   }
+
+  // ── Scroll reveal ──
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        revealObserver.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.12 });
+
+  document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
 
   // ── Hide sticky CTA near footer ──
   window.addEventListener('scroll', () => {
