@@ -1,0 +1,833 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>CancunAI — Docs & Brand Guide</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&display=swap" rel="stylesheet">
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg width='100' height='100' viewBox='0 0 100 100' xmlns='http://www.w3.org/2000/svg'%3E%3Crect width='100' height='100' rx='20' fill='%230D1117'/%3E%3Crect x='28' y='6' width='36' height='72' rx='18' fill='none' stroke='%23E8FF47' stroke-width='5' transform='rotate(-15 46 42)'/%3E%3Crect x='36' y='22' width='30' height='56' rx='15' fill='%2347FFD4' transform='rotate(12 51 50)'/%3E%3Ccircle cx='20' cy='82' r='7' fill='none' stroke='%23E8FF47' stroke-width='4'/%3E%3C/svg%3E">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:      #080B10;
+      --bg2:     #0D1117;
+      --bg3:     #111820;
+      --border:  rgba(255,255,255,0.07);
+      --accent:  #E8FF47;
+      --accent2: #47FFD4;
+      --accent3: #FF6B2B;
+      --text:    #F0F4FF;
+      --muted:   #6B7A99;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: 'DM Sans', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: sticky; top: 0;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 18px 48px;
+      border-bottom: 1px solid var(--border);
+      backdrop-filter: blur(20px);
+      background: rgba(8,11,16,0.9);
+      z-index: 100;
+    }
+
+    .nav-logo {
+      display: flex; align-items: center; gap: 8px;
+      text-decoration: none;
+    }
+
+    .nav-logo span {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 18px;
+      color: var(--text);
+    }
+
+    .nav-back {
+      display: inline-flex; align-items: center; gap: 6px;
+      font-size: 13px; color: var(--muted);
+      text-decoration: none;
+      border: 1px solid var(--border);
+      padding: 6px 14px; border-radius: 100px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+
+    .nav-back:hover { color: var(--text); border-color: rgba(232,255,71,0.3); }
+
+    /* ── LAYOUT ── */
+    .page {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 80px 24px 120px;
+    }
+
+    /* ── HERO ── */
+    .doc-hero {
+      margin-bottom: 72px;
+      padding-bottom: 48px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .doc-tag {
+      display: inline-block;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      color: var(--accent); margin-bottom: 16px;
+    }
+
+    .doc-hero h1 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: clamp(32px, 5vw, 52px);
+      letter-spacing: -1.5px; line-height: 1.1;
+      margin-bottom: 16px;
+    }
+
+    .doc-hero p {
+      font-size: 17px; color: var(--muted);
+      font-weight: 300; max-width: 560px;
+      line-height: 1.7;
+    }
+
+    /* ── SECTIONS ── */
+    .doc-section {
+      margin-bottom: 64px;
+    }
+
+    .doc-section h2 {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 22px;
+      letter-spacing: -0.5px;
+      margin-bottom: 20px;
+      padding-bottom: 12px;
+      border-bottom: 1px solid var(--border);
+      display: flex; align-items: center; gap: 10px;
+    }
+
+    .doc-section h2 .h2-num {
+      font-size: 12px; font-weight: 600;
+      color: var(--accent); letter-spacing: 0.1em;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    .doc-section p {
+      font-size: 15px; color: var(--muted);
+      line-height: 1.75; margin-bottom: 12px;
+    }
+
+    .doc-section p strong { color: var(--text); }
+
+    /* ── KEY MESSAGE CARDS ── */
+    .msg-grid {
+      display: flex; flex-direction: column; gap: 12px;
+      margin-top: 8px;
+    }
+
+    .msg-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+
+    .msg-num {
+      font-family: 'Syne', sans-serif;
+      font-weight: 800; font-size: 13px;
+      color: var(--accent); flex-shrink: 0;
+      margin-top: 2px;
+    }
+
+    .msg-text {
+      font-size: 15px; color: var(--text);
+      line-height: 1.6;
+    }
+
+    .msg-text span { color: var(--muted); font-size: 13px; display: block; margin-top: 4px; }
+
+    /* ── DO / DON'T ── */
+    .do-dont {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 16px;
+      margin-top: 8px;
+    }
+
+    .do-card, .dont-card {
+      background: var(--bg3);
+      border-radius: 12px;
+      padding: 20px;
+    }
+
+    .do-card { border: 1px solid rgba(71,255,212,0.2); }
+    .dont-card { border: 1px solid rgba(255,107,43,0.2); }
+
+    .do-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent2); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .dont-label {
+      font-size: 11px; font-weight: 700;
+      letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--accent3); margin-bottom: 12px;
+      display: flex; align-items: center; gap: 6px;
+    }
+
+    .do-card li, .dont-card li {
+      font-size: 13px; color: var(--muted);
+      line-height: 1.65; margin-bottom: 8px;
+      padding-left: 14px; position: relative;
+    }
+
+    .do-card li::before {
+      content: '✓';
+      position: absolute; left: 0;
+      color: var(--accent2); font-size: 11px;
+    }
+
+    .dont-card li::before {
+      content: '✕';
+      position: absolute; left: 0;
+      color: var(--accent3); font-size: 11px;
+    }
+
+    /* ── EXAMPLE POST ── */
+    .example-post {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 14px;
+      padding: 24px 24px 20px;
+      margin-top: 12px;
+      position: relative;
+    }
+
+    .example-label {
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--muted); margin-bottom: 14px;
+      display: flex; align-items: center; gap: 8px;
+    }
+
+    .example-label::after {
+      content: '';
+      flex: 1; height: 1px;
+      background: var(--border);
+    }
+
+    .example-post p {
+      font-size: 15px; color: var(--text);
+      line-height: 1.75; margin-bottom: 0;
+      white-space: pre-line;
+    }
+
+    .example-post .hashtags {
+      margin-top: 12px;
+      font-size: 14px; color: var(--accent);
+      font-weight: 500;
+    }
+
+    .platform-tag {
+      display: inline-flex; align-items: center; gap: 5px;
+      font-size: 11px; font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 10px; border-radius: 100px;
+      margin-bottom: 16px;
+    }
+
+    .platform-tag.twitter {
+      color: var(--text);
+      background: rgba(255,255,255,0.05);
+      border: 1px solid var(--border);
+    }
+
+    .platform-tag.telegram {
+      color: var(--accent2);
+      background: rgba(71,255,212,0.06);
+      border: 1px solid rgba(71,255,212,0.2);
+    }
+
+    /* ── HASHTAG PILLS ── */
+    .hashtag-grid {
+      display: flex; flex-wrap: wrap; gap: 10px;
+      margin-top: 8px;
+    }
+
+    .hashtag-pill {
+      background: rgba(232,255,71,0.06);
+      border: 1px solid rgba(232,255,71,0.2);
+      color: var(--accent);
+      font-size: 13px; font-weight: 600;
+      padding: 6px 14px; border-radius: 100px;
+      font-family: 'DM Sans', sans-serif;
+    }
+
+    /* ── TONE GUIDE ── */
+    .tone-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px; margin-top: 8px;
+    }
+
+    .tone-card {
+      background: var(--bg3);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 18px 20px;
+    }
+
+    .tone-title {
+      font-family: 'Syne', sans-serif;
+      font-weight: 700; font-size: 14px;
+      color: var(--accent); margin-bottom: 8px;
+    }
+
+    .tone-card p {
+      font-size: 13px; color: var(--muted);
+      margin-bottom: 0; line-height: 1.6;
+    }
+
+    /* ── INFO BOX ── */
+    .info-box {
+      background: rgba(232,255,71,0.03);
+      border: 1px solid rgba(232,255,71,0.12);
+      border-radius: 12px;
+      padding: 18px 20px;
+      margin-top: 12px;
+    }
+
+    .info-box p {
+      font-size: 14px; color: var(--muted);
+      margin-bottom: 0; line-height: 1.7;
+    }
+
+    .info-box p strong { color: var(--accent); }
+
+    /* ── PDF-LIKE PROTECTION ── */
+    body {
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+      user-select: none;
+    }
+
+    /* Allow text selection only inside content for readability */
+    .page { cursor: default; }
+
+    @media print {
+      body { display: none !important; }
+    }
+
+    /* ── PDF VIEWER FEEL ── */
+    body {
+      background: #1a1a2e;
+    }
+
+    .page-wrapper {
+      background: #080B10;
+      max-width: 800px;
+      margin: 32px auto;
+      border-radius: 8px;
+      box-shadow: 0 24px 80px rgba(0,0,0,0.6);
+      overflow: hidden;
+      border: 1px solid var(--border);
+    }
+
+    /* Top doc bar — mimics PDF viewer */
+    .doc-bar {
+      background: #0D1117;
+      border-bottom: 1px solid var(--border);
+      padding: 10px 24px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+    }
+
+    .doc-bar-title {
+      font-size: 12px;
+      color: var(--muted);
+      font-family: 'DM Sans', sans-serif;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .doc-bar-title strong { color: var(--text); font-size: 13px; }
+
+    .doc-bar-badge {
+      font-size: 10px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--accent);
+      background: rgba(232,255,71,0.08);
+      border: 1px solid rgba(232,255,71,0.2);
+      padding: 3px 10px;
+      border-radius: 100px;
+    }
+
+    .doc-bar-protected {
+      font-size: 10px;
+      color: var(--muted);
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      opacity: 0.6;
+    }
+    .doc-footer {
+      border-top: 1px solid var(--border);
+      padding: 32px 48px;
+      display: flex; align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap; gap: 16px;
+    }
+
+    .doc-footer p { font-size: 13px; color: var(--muted); }
+
+    .doc-footer a {
+      font-size: 13px; color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    .doc-footer a:hover { color: var(--text); }
+
+    @media (max-width: 600px) {
+      nav { padding: 14px 20px; }
+      .page { padding: 48px 20px 100px; }
+      .do-dont { grid-template-columns: 1fr; }
+      .tone-grid { grid-template-columns: 1fr; }
+      .doc-footer { flex-direction: column; text-align: center; padding: 24px 20px; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a class="nav-logo" href="https://cancunai.xyz">
+    <svg width="32" height="32" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+      <rect width="100" height="100" rx="20" fill="#0D1117"/>
+      <rect x="28" y="6" width="36" height="72" rx="18" fill="none" stroke="#E8FF47" stroke-width="5" transform="rotate(-15 46 42)"/>
+      <rect x="36" y="22" width="30" height="56" rx="15" fill="#47FFD4" transform="rotate(12 51 50)"/>
+      <circle cx="20" cy="82" r="7" fill="none" stroke="#E8FF47" stroke-width="4"/>
+    </svg>
+    <span>cancunAI</span>
+  </a>
+  <a class="nav-back" href="index.html">← Back to site</a>
+</nav>
+
+<!-- PDF VIEWER SHELL -->
+<div class="page-wrapper">
+  <div class="doc-bar">
+    <div class="doc-bar-title">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="color:#E8FF47"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+      <strong>CancunAI — Content &amp; Brand Guide</strong>
+      <span>· View only</span>
+    </div>
+    <div style="display:flex;align-items:center;gap:12px;">
+      <div class="doc-bar-protected">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><rect x="3" y="11" width="18" height="11" rx="2" ry="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+        Protected
+      </div>
+      <div class="doc-bar-badge">Community Docs</div>
+    </div>
+  </div>
+
+<!-- PAGE -->
+<div class="page">
+
+  <!-- HERO -->
+  <div class="doc-hero">
+    <div class="doc-tag">Community Docs</div>
+    <h1>Content &amp; Brand Guide</h1>
+    <p>Everything you need to post about CancunAI correctly — what we are, what to say, what not to say, and how to say it well.</p>
+  </div>
+
+  <!-- SECTION 1 — What is CancunAI -->
+  <div class="doc-section">
+    <h2><span class="h2-num">01</span> What is CancunAI?</h2>
+    <p>CancunAI is a <strong>data contribution platform</strong> that pays users in crypto for the browsing data they already generate every day.</p>
+    <p>Users install a browser extension. The extension runs silently in the background, collecting anonymised browsing signals with the user's full consent. Those signals are packaged and sold to AI companies and research labs who need real human behavioural data to train their models. Users earn points for every contribution — points convert to crypto (USDT and others) once a minimum threshold is reached.</p>
+    <p>The platform is currently in <strong>waitlist stage</strong>. The first 1,000 members get early access, a launch bonus multiplier, and the ability to earn points before public launch through Twitter posts and the upcoming AI feedback task campaign.</p>
+
+    <div class="info-box">
+      <p><strong>One sentence version:</strong> CancunAI pays you in crypto for data your browser already generates — passively, privately, every day.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 8 — How Points Work -->
+  <div class="doc-section">
+    <h2><span class="h2-num">02</span> How Points Work</h2>
+    <p>Points are the internal currency of CancunAI. They accumulate based on your activity and convert to crypto once you hit the minimum withdrawal threshold. Here's how you earn them:</p>
+
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="msg-num">🌐</div>
+        <div class="msg-text">
+          Browsing — passive, automatic
+          <span>Every page you visit while the extension is active earns points. Example: 10,000 browsing points ≈ $14 in crypto value. Starts at extension launch.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">𝕏</div>
+        <div class="msg-text">
+          Twitter posts — active now
+          <span>Post about CancunAI on Twitter at least twice a week. Submit your tweet URL on the site. Each verified post earns 500 points. Points visible soon after verification.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">👥</div>
+        <div class="msg-text">
+          Referrals — unlimited
+          <span>Every person who joins via your personal referral link earns you bonus points at launch. No cap. The more you refer, the more you earn.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">⚡</div>
+        <div class="msg-text">
+          AI Feedback Tasks — early testers only
+          <span>Rate AI responses, label content, compare outputs. Available to waitlist members before public launch. Earns 30–300 points per task depending on complexity.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="info-box" style="margin-top:16px;">
+      <p><strong>Important:</strong> Point values and conversion rates are not guaranteed. Actual payouts depend entirely on revenue generated from AI data buyers. Any figures shown are illustrative estimates, not promises.</p>
+    </div>
+  </div>
+
+  <!-- SECTION 6 — Example Posts -->
+  <div class="doc-section">
+    <h2><span class="h2-num">03</span> Example Posts</h2>
+    <p>These are examples of what good CancunAI posts look like — not templates to copy word for word. Write in your own voice using these as a reference.</p>
+
+    <!-- Twitter example 1 -->
+    <div class="example-post" style="margin-bottom:16px;">
+      <div class="example-label">
+        <span class="platform-tag twitter">𝕏 Twitter — Short &amp; punchy</span>
+      </div>
+      <p>Every time you browse, you generate data worth real money.
+
+AI companies pay for it.
+You never see a cent.
+
+CancunAI fixes that — passive crypto earnings from your normal internet use.
+
+Only 1,000 spots open.
+cancunai.xyz</p>
+      <div class="hashtags">#CancunAI #PassiveIncome #CryptoEarnings</div>
+    </div>
+
+    <!-- Twitter example 2 -->
+    <div class="example-post" style="margin-bottom:16px;">
+      <div class="example-label">
+        <span class="platform-tag twitter">𝕏 Twitter — Personal angle</span>
+      </div>
+      <p>Just joined the CancunAI waitlist.
+
+A browser extension that earns you crypto passively — no tasks, no surveys, just browsing like normal.
+
+Early access is limited to 1,000 people.
+Worth checking out 👇
+
+cancunai.xyz</p>
+      <div class="hashtags">#CancunAI #EarnCrypto #Web3</div>
+    </div>
+
+  </div>
+
+  <!-- SECTION 2 — Key Messages -->
+  <div class="doc-section">
+    <h2><span class="h2-num">04</span> Key Messages</h2>
+    <p>When posting about CancunAI, build around these five core ideas:</p>
+
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="msg-num">01</div>
+        <div class="msg-text">
+          Your browsing data has real value — and you've been giving it away for free.
+          <span>AI companies pay billions for human data. CancunAI puts that money back in your hands.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">02</div>
+        <div class="msg-text">
+          It's passive. No tasks, no surveys, no effort.
+          <span>Install once, earn daily. Your normal internet use is all that's needed.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">03</div>
+        <div class="msg-text">
+          Privacy first. You opt in. You stay in control.
+          <span>All data is anonymised. No passwords, no private messages, no personal info ever collected.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">04</div>
+        <div class="msg-text">
+          Only 1,000 early access spots — first come, first served.
+          <span>Early members get a launch bonus multiplier and head start on earnings.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">05</div>
+        <div class="msg-text">
+          Earn before launch — not just after.
+          <span>Post on Twitter, complete AI feedback tasks, and refer friends to start stacking points now.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 3 — Tone of Voice -->
+  <div class="doc-section">
+    <h2><span class="h2-num">05</span> Tone of Voice</h2>
+    <p>CancunAI speaks like a sharp, honest founder — not a hype machine. Keep posts direct, confident, and grounded.</p>
+
+    <div class="tone-grid">
+      <div class="tone-card">
+        <div class="tone-title">Direct</div>
+        <p>Say exactly what it does. No fluff. No buzzwords. Short sentences work best.</p>
+      </div>
+      <div class="tone-card">
+        <div class="tone-title">Confident</div>
+        <p>Don't hedge. "You can earn" is weak. "You earn" is strong. Own the message.</p>
+      </div>
+      <div class="tone-card">
+        <div class="tone-title">Honest</div>
+        <p>Never promise guaranteed earnings. The opportunity is real — the amount varies. Say that.</p>
+      </div>
+      <div class="tone-card">
+        <div class="tone-title">Human</div>
+        <p>Talk to real people. Avoid corporate language. Write how you'd explain it to a friend.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 11 — Brand Assets -->
+  <div class="doc-section">
+    <h2><span class="h2-num">06</span> Brand Assets &amp; Name Usage</h2>
+    <p>Use these guidelines to represent CancunAI correctly in posts, graphics, and conversations.</p>
+
+    <div class="do-dont">
+      <div class="do-card">
+        <div class="do-label">✓ Correct</div>
+        <ul>
+          <li><strong>CancunAI</strong> — capital C, capital AI, no space</li>
+          <li><strong>cancunai.xyz</strong> — always lowercase for the URL</li>
+          <li><strong>#CancunAI</strong> — capital C and AI in hashtag</li>
+          <li>Dark background preferred for any graphics</li>
+          <li>Brand colours: <strong style="color:#E8FF47;">#E8FF47</strong> yellow-green · <strong style="color:#47FFD4;">#47FFD4</strong> teal · <strong style="color:#FF6B2B;">#FF6B2B</strong> orange</li>
+        </ul>
+      </div>
+      <div class="dont-card">
+        <div class="dont-label">✕ Incorrect</div>
+        <ul>
+          <li>Cancun AI — no space between words</li>
+          <li>cancunAI — lowercase c is wrong</li>
+          <li>CancunAi — lowercase i is wrong</li>
+          <li>cancun.ai — wrong domain entirely</li>
+          <li>Any unofficial logos or modified brand marks</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 4 — Do's and Don'ts -->
+  <div class="doc-section">
+    <h2><span class="h2-num">07</span> Do's &amp; Don'ts</h2>
+
+    <div class="do-dont">
+      <div class="do-card">
+        <div class="do-label">✓ Do</div>
+        <ul>
+          <li>Use the name <strong>CancunAI</strong> — capital C, capital AI</li>
+          <li>Link to <strong>cancunai.xyz</strong> in every post</li>
+          <li>Say earnings <strong>vary based on usage</strong></li>
+          <li>Mention the <strong>1,000 spot limit</strong> for urgency</li>
+          <li>Share your <strong>personal referral link</strong> when inviting others</li>
+          <li>Use hashtags listed in Section 5</li>
+          <li>Keep posts <strong>short and punchy</strong> on Twitter</li>
+          <li>Be personal — share <strong>why you joined</strong></li>
+        </ul>
+      </div>
+      <div class="dont-card">
+        <div class="dont-label">✕ Don't</div>
+        <ul>
+          <li>Don't promise a <strong>fixed earning amount</strong></li>
+          <li>Don't say <strong>"guaranteed"</strong> — ever</li>
+          <li>Don't use <strong>cancun.ai</strong> — wrong domain</li>
+          <li>Don't call it a <strong>get rich quick</strong> scheme</li>
+          <li>Don't say it <strong>tracks personal data</strong> — it doesn't</li>
+          <li>Tag <strong>@cancunAi</strong> on every Twitter post</li>
+          <li>Don't share <strong>someone else's referral link</strong> as your own</li>
+          <li>Don't make claims about <strong>launch dates</strong> beyond Q3 2026</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 5 — Hashtags -->
+  <div class="doc-section">
+    <h2><span class="h2-num">08</span> Hashtags to Use</h2>
+    <p>Use a mix of brand and category hashtags. Don't stack more than 4–5 per post on Twitter. Telegram hashtags are optional.</p>
+
+    <div class="hashtag-grid">
+      <div class="hashtag-pill">#CancunAI</div>
+      <div class="hashtag-pill">#PassiveIncome</div>
+      <div class="hashtag-pill">#CryptoEarnings</div>
+      <div class="hashtag-pill">#Web3</div>
+      <div class="hashtag-pill">#AIData</div>
+      <div class="hashtag-pill">#DataEconomy</div>
+      <div class="hashtag-pill">#EarnCrypto</div>
+      <div class="hashtag-pill">#BrowseAndEarn</div>
+      <div class="hashtag-pill">#USDT</div>
+      <div class="hashtag-pill">#AITools</div>
+    </div>
+  </div>
+
+  <!-- SECTION 10 — Roadmap -->
+  <div class="doc-section">
+    <h2><span class="h2-num">09</span> Roadmap</h2>
+    <p>CancunAI is being built in clear, public stages. Here's where we are and where we're going.</p>
+
+    <div class="msg-grid">
+      <div class="msg-card" style="border-color:rgba(232,255,71,0.25);background:rgba(232,255,71,0.03);">
+        <div class="msg-num" style="color:var(--accent);">NOW</div>
+        <div class="msg-text">
+          Waitlist Stage — Open
+          <span>Collecting early members. First 1,000 get launch bonus. Twitter post earning is live. AI feedback tasks coming soon for waitlist members.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q2</div>
+        <div class="msg-text">
+          Private Beta — 2026
+          <span>Waitlist members get first access to the browser extension. Points start accumulating from browsing. AI feedback task campaign fully live.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q3</div>
+        <div class="msg-text">
+          Public Launch — 2026
+          <span>Extension available to everyone. User dashboard goes live. First crypto payouts processed for early members who hit the withdrawal threshold.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">→</div>
+        <div class="msg-text">
+          Future
+          <span>Mobile app, expanded data types, enterprise data partnerships, token rewards system, and more earning streams added based on platform growth.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 9 — FAQ for Community Members -->
+  <div class="doc-section">
+    <h2><span class="h2-num">10</span> FAQ for Community Members</h2>
+    <p>Questions people will ask you when you share CancunAI. Here are honest answers.</p>
+
+    <div class="msg-grid">
+      <div class="msg-card">
+        <div class="msg-num">Q</div>
+        <div class="msg-text">
+          Is this a scam?
+          <span>No. CancunAI is a legitimate data contribution platform. The waitlist is live at cancunai.xyz. Emails are stored securely. No payment or personal details are requested at sign up — only your email address.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q</div>
+        <div class="msg-text">
+          Who runs CancunAI?
+          <span>CancunAI is an early-stage product currently in waitlist stage. The team is building the extension and backend for a Q2/Q3 2026 launch. More information will be shared as development progresses.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q</div>
+        <div class="msg-text">
+          How much will I actually earn?
+          <span>Earnings vary based on browsing activity, task completion, and referrals. Payouts depend on revenue from AI data buyers — there is no fixed or guaranteed amount. Estimates on the site are illustrative only.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q</div>
+        <div class="msg-text">
+          When do I get paid?
+          <span>First payouts are targeted for Q3 2026 after public launch. Withdrawals open once your points reach the minimum threshold. Crypto payments in USDT and other supported tokens.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q</div>
+        <div class="msg-text">
+          Is my data safe and private?
+          <span>Yes. All data is anonymised at the point of collection. No passwords, financial info, or private messages are ever collected. You can stop at any time by uninstalling the extension. CancunAI is GDPR-aware.</span>
+        </div>
+      </div>
+      <div class="msg-card">
+        <div class="msg-num">Q</div>
+        <div class="msg-text">
+          What browser does it work on?
+          <span>The extension will be available for Chrome initially, with Firefox and other browsers planned. Works on any device that supports Chrome extensions.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECTION 7 — Important Links -->
+  <div class="doc-section">
+    <h2><span class="h2-num">11</span> Important Links</h2>
+    <p><strong>Waitlist:</strong> <a href="https://cancunai.xyz" style="color:var(--accent);text-decoration:none;">cancunai.xyz</a></p>
+    <p style="margin-top:8px;"><strong>Telegram community:</strong> <a href="https://t.me/cancunAI" style="color:var(--accent2);text-decoration:none;">t.me/cancunAI</a></p>
+    <p style="margin-top:8px;"><strong>Twitter/X:</strong> <a href="https://x.com/cancunAi" target="_blank" rel="noopener" style="color:var(--accent);text-decoration:none;">@cancunAi</a> — tag us in every post</p>
+
+    <div class="info-box" style="margin-top:20px;">
+      <p><strong>Your referral link</strong> is generated automatically when you join the waitlist. Share it to earn bonus points for every person who signs up through your link. No cap on referrals.</p>
+    </div>
+  </div>
+
+  
+</div>
+
+<!-- FOOTER -->
+<footer class="doc-footer">
+  <p>© 2026 CancunAI. All rights reserved.</p>
+  <a href="https://cancunai.xyz">cancunai.xyz</a>
+</footer>
+
+</div><!-- end page-wrapper -->
+
+<script>
+  // Disable right-click
+  document.addEventListener('contextmenu', e => e.preventDefault());
+
+  // Disable Ctrl+S / Cmd+S and Ctrl+P / Cmd+P
+  document.addEventListener('keydown', e => {
+    if ((e.ctrlKey || e.metaKey) && ['s','p','u'].includes(e.key.toLowerCase())) {
+      e.preventDefault();
+      return false;
+    }
+  });
+
+  // Disable drag
+  document.addEventListener('dragstart', e => e.preventDefault());
+</script>
+
+</body>
+</html>
